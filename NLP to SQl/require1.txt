@@ -1,0 +1,9 @@
+streamlit
+python-dotenv
+tenacity
+SQLAlchemy
+PyMySQL
+langchain-classic
+langchain-core
+langchain-community
+langchain-google-genai
