@@ -312,18 +312,4 @@ source venv/bin/activate
 pip install -r requirements_updated.txt
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-**🎉 You're all set! Enjoy using Atliq Tees Assistant!**
+**Done**
