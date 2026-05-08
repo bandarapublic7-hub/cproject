@@ -1,10 +1,19 @@
-# 🚀 Setup Guide - Atliq Tees Assistant
+# 👔 Atliq Tees — NL to SQL Assistant
+
+Ask questions in plain English. Get instant answers from your inventory database — powered by Google Gemini AI.
+
+![Version](https://img.shields.io/badge/version-v2.0%20stable-blue)
+![Python](https://img.shields.io/badge/Python-3.8+-green)
+![MySQL](https://img.shields.io/badge/MySQL-orange)
+![Gemini](https://img.shields.io/badge/Google-Gemini%20AI-purple)
+![License](https://img.shields.io/badge/License-MIT-green)
+![UI](https://img.shields.io/badge/UI-Streamlit-blue)
+
 
 Complete step-by-step setup instructions for all platforms.
 
 ---
 
-## 📋 Table of Contents
 
 1. [Prerequisites](#prerequisites)
 2. [Installation Steps](#installation-steps)
@@ -33,7 +42,7 @@ Complete step-by-step setup instructions for all platforms.
 
 ---
 
-## Installation Steps
+**Installation Steps**
 
 ### Step 1: Download Project Files
 
@@ -62,7 +71,7 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-✅ You should see `(venv)` prefix in terminal
+ You should see `(venv)` prefix in terminal
 
 
 .\.venv\Scripts\python.exe -m pip install -r requirements_updated.txt
@@ -78,7 +87,6 @@ pip install --upgrade pip
 pip install -r requirements_updated.txt
 ```
 
-⏳ This may take 2-3 minutes...
 
 **Verify Installation:**
 ```bash
@@ -93,7 +101,7 @@ pip list | grep pymysql
 2. Click **"Get API Key"** button
 3. Click **"Create new API key"**
 4. Copy the key (starts with `AIzaSy...`)
-5. ⚠️ **Keep this secret!** Never share it.
+
 
 ### Step 5: Database Setup
 
@@ -117,7 +125,7 @@ mysql -u root -p < db_creation_enhanced.sql
 2. Double-click your MySQL connection
 3. Menu: **File** → **Open SQL Script**
 4. Select `db_creation_enhanced.sql`
-5. Click ⚡ **Execute**
+
 
 **Verify Database Created:**
 ```bash
@@ -164,7 +172,7 @@ streamlit run main_enhanced.py
   Network URL: http://192.168.x.x:8501
 ```
 
-✅ Browser opens automatically at `http://localhost:8501`
+ Browser opens at `http://localhost:8501`
 
 ---
 
@@ -200,7 +208,7 @@ The SQL script creates:
 
 ---
 
-## Configuration
+**Configuration**
 
 ### .env File Breakdown
 
@@ -218,7 +226,7 @@ DB_PORT=3306                     # Database port (default)
 DB_NAME=atliq_tshirts           # Database name
 ```
 
-### Streamlit Configuration (Optional)
+### Streamlit Configuration Extra Work**
 
 Create `~/.streamlit/config.toml`:
 
@@ -290,38 +298,13 @@ python -c "import os; print(os.getenv('GOOGLE_API_KEY'))"
 streamlit run main_enhanced.py
 ```
 
-✅ Should open browser to http://localhost:8501
+ **open browser to http://localhost:8501**
 
 ---
 
-## Platform-Specific Setup
 
-### Windows 10/11
 
-**MySQL Setup:**
-1. Download MySQL Community Server
-2. Run installer (.msi)
-3. Choose "Server only" installation
-4. Default port: 3306
-5. Configure MySQL as Windows Service
-6. Remember the root password!
-
-**Command Prompt Tips:**
-- Use Command Prompt (not PowerShell) for better compatibility
-- Activate venv: `venv\Scripts\activate`
-- Run Streamlit: `streamlit run main_enhanced.py`
-
-### macOS
-
-**MySQL Setup:**
-```bash
-# Using Homebrew
-brew install mysql
-brew services start mysql
-
-# Or download DMG from mysql.com
-```
-
+#
 **Terminal Setup:**
 ```bash
 python3 -m venv venv
@@ -329,134 +312,18 @@ source venv/bin/activate
 pip install -r requirements_updated.txt
 ```
 
-### Linux (Ubuntu/Debian)
 
-**MySQL Setup:**
-```bash
-sudo apt-get update
-sudo apt-get install mysql-server
-sudo mysql_secure_installation
-sudo systemctl start mysql
-```
 
-**Terminal Setup:**
-```bash
-python3 -m venv venv
-source venv/bin/activate
-pip install -r requirements_updated.txt
-```
 
----
 
-## Common Setup Issues
 
-### Issue: "python not found"
-**Solution:**
-- Install Python from python.org
-- Add to PATH (Windows): Set in Environment Variables
-- Verify: `python --version`
 
-### Issue: "MySQL connection failed"
-**Solution:**
-- Check MySQL is running
-  - Windows: Services → MySQL
-  - macOS: `brew services list`
-  - Linux: `systemctl status mysql`
-- Verify credentials in .env
-- Test connection: `mysql -u root -p`
 
-### Issue: "GOOGLE_API_KEY not set"
-**Solution:**
-1. Create `.env` file in project root
-2. Add: `GOOGLE_API_KEY=your_actual_key`
-3. Save file
-4. Restart Streamlit
 
-### Issue: "ModuleNotFoundError: No module named..."
-**Solution:**
-```bash
-# Ensure venv is activated (shows (venv) in terminal)
-pip install -r requirements_updated.txt --upgrade
-```
 
-### Issue: "Port 8501 already in use"
-**Solution:**
-```bash
-# Use different port
-streamlit run main_enhanced.py --server.port 8502
-```
 
----
 
-## Performance Optimization
 
-### Database Performance
-```bash
-# Check indexes
-SHOW INDEXES FROM t_shirts;
 
-# Analyze table
-ANALYZE TABLE t_shirts;
-ANALYZE TABLE discounts;
-```
-
-### Application Performance
-- First query: 2-3 seconds (model initialization)
-- Subsequent queries: <1 second
-- Large result sets: May take longer
-- Clear history if app becomes slow
-
----
-
-## Next Steps
-
-✅ Setup complete! Now:
-
-1. **Try Example Questions**: Use built-in examples
-2. **Explore Data**: Check Analytics tab
-3. **Read Documentation**: See docs/ folder
-4. **Ask Questions**: Type your own queries
-5. **Export Results**: Download data as CSV
-
----
-
-## Getting Help
-
-### Resources
-- 📖 README.md - Overview and features
-- 📋 FEATURES.md - Detailed feature guide
-- 🐛 TROUBLESHOOTING.md - Common issues
-- 💬 GitHub Issues - Report bugs
-- 📧 Support email
-
-### Quick Checks
-```bash
-# Test everything in one go
-python -c "
-import mysql.connector
-import streamlit
-import langchain_google_genai
-print('✅ All imports successful!')
-"
-```
-
----
-
-## Uninstallation
-
-If you need to remove everything:
-
-```bash
-# Remove virtual environment
-rm -rf venv  # macOS/Linux
-rmdir venv /s /q  # Windows
-
-# Remove MySQL (OS-specific)
-# Windows: Control Panel → Programs → Uninstall Programs
-# macOS: brew uninstall mysql
-# Linux: sudo apt-get remove mysql-server
-```
-
----
 
 **🎉 You're all set! Enjoy using Atliq Tees Assistant!**
