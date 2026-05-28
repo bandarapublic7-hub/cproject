@@ -467,6 +467,6 @@ MIT License © 2024 Atliq Tees
 
 Made with ❤️ for inventory management excellence
 
-*Last Updated: January 2024*
+*Last Updated: March 2026*
 
 </div>
